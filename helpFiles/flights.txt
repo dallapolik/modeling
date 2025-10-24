@@ -1,0 +1,80 @@
+runways=10
+0 0 takeoff 6
+3 0 takeoff 7
+8 0 takeoff 5
+12 0 takeoff 6
+18 0 takeoff 8
+24 0 takeoff 6
+30 0 takeoff 5
+
+1 1 takeoff 7
+5 1 takeoff 8
+10 1 takeoff 6
+16 1 takeoff 7
+22 1 takeoff 5
+27 1 takeoff 8
+33 1 takeoff 6
+
+2 2 takeoff 8
+7 2 takeoff 5
+13 2 takeoff 7
+19 2 takeoff 6
+25 2 takeoff 8
+32 2 takeoff 5
+38 2 takeoff 7
+
+3 3 takeoff 6
+8 3 takeoff 5
+14 3 takeoff 8
+20 3 takeoff 7
+26 3 takeoff 6
+31 3 takeoff 5
+36 3 takeoff 8
+
+4 4 takeoff 5
+9 4 takeoff 7
+15 4 takeoff 6
+21 4 takeoff 5
+27 4 takeoff 8
+33 4 takeoff 7
+39 4 takeoff 5
+
+6 5 landing 7
+10 5 landing 6
+16 5 landing 8
+22 5 landing 7
+28 5 landing 6
+34 5 landing 8
+40 5 landing 5
+
+8 6 landing 5
+12 6 landing 6
+18 6 landing 7
+24 6 landing 8
+30 6 landing 6
+36 6 landing 7
+42 6 landing 8
+
+10 7 landing 6
+15 7 landing 7
+21 7 landing 6
+27 7 landing 8
+33 7 landing 6
+39 7 landing 5
+45 7 landing 7
+
+12 8 landing 5
+18 8 landing 7
+24 8 landing 8
+30 8 landing 6
+36 8 landing 7
+42 8 landing 5
+48 8 landing 6
+
+14 9 landing 6
+20 9 landing 8
+26 9 landing 7
+32 9 landing 6
+38 9 landing 8
+44 9 landing 7
+50 9 landing 6

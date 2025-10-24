@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>helpFiles/flights.txt</file>
+        <file>helpFiles/plane.png</file>
+    </qresource>
+</RCC>

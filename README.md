@@ -28,6 +28,7 @@ make
 
 ## Структура проекта
 
+```
 .
 ├── CMakeLists.txt
 ├── main.cpp
@@ -37,6 +38,7 @@ make
     ├── helpFiles/
     │   ├── plane.png
     │   └── flights.txt
+```
 
 ## Формат flights.txt
 

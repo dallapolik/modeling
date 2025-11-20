@@ -51,6 +51,7 @@ private:
     double minutesPerSecond_ = 1.0;
     int runways_;
     double totalSimTime_ = 0.0;
+    bool endDialogShown_ = false;
 
     QPixmap planePm_;
     QImage bgImg_;

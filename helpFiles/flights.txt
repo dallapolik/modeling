@@ -1,80 +1,700 @@
-runways=10
-0 0 takeoff 6
-3 0 takeoff 7
-8 0 takeoff 5
-12 0 takeoff 6
-18 0 takeoff 8
-24 0 takeoff 6
-30 0 takeoff 5
-
-1 1 takeoff 7
-5 1 takeoff 8
-10 1 takeoff 6
-16 1 takeoff 7
-22 1 takeoff 5
-27 1 takeoff 8
-33 1 takeoff 6
-
-2 2 takeoff 8
-7 2 takeoff 5
-13 2 takeoff 7
-19 2 takeoff 6
-25 2 takeoff 8
-32 2 takeoff 5
-38 2 takeoff 7
-
-3 3 takeoff 6
-8 3 takeoff 5
-14 3 takeoff 8
-20 3 takeoff 7
-26 3 takeoff 6
-31 3 takeoff 5
-36 3 takeoff 8
-
-4 4 takeoff 5
-9 4 takeoff 7
-15 4 takeoff 6
-21 4 takeoff 5
-27 4 takeoff 8
-33 4 takeoff 7
-39 4 takeoff 5
-
-6 5 landing 7
-10 5 landing 6
-16 5 landing 8
-22 5 landing 7
-28 5 landing 6
-34 5 landing 8
-40 5 landing 5
-
-8 6 landing 5
-12 6 landing 6
-18 6 landing 7
-24 6 landing 8
-30 6 landing 6
-36 6 landing 7
-42 6 landing 8
-
-10 7 landing 6
-15 7 landing 7
-21 7 landing 6
-27 7 landing 8
-33 7 landing 6
-39 7 landing 5
-45 7 landing 7
-
-12 8 landing 5
-18 8 landing 7
-24 8 landing 8
-30 8 landing 6
-36 8 landing 7
-42 8 landing 5
-48 8 landing 6
-
-14 9 landing 6
-20 9 landing 8
-26 9 landing 7
-32 9 landing 6
-38 9 landing 8
-44 9 landing 7
-50 9 landing 6
+0 13 landing HawkLine-567 -
+4 18 takeoff StormRider-122 Istanbul
+4 13 takeoff StormRider-200 Helsinki
+4 18 takeoff AeroStar-775 Rome
+8 17 landing IronBird-908 -
+16 17 landing TerraWing-119 -
+16 13 landing Falcon-510 -
+15 12 landing Nimbus-690 -
+20 14 landing AeroStar-867 -
+24 17 landing CloudRunner-179 -
+25 13 landing JetStream-509 -
+25 18 takeoff TerraWing-674 Munich
+27 15 takeoff Falcon-183 Zurich
+31 18 takeoff HawkLine-516 Munich
+33 18 takeoff Comet-211 Oslo
+39 16 landing AeroStar-447 -
+41 12 landing StormRider-217 -
+41 18 takeoff Phoenix-442 Rome
+42 14 takeoff JetStream-813 Copenhagen
+42 14 landing JetStream-360 -
+43 17 takeoff Comet-534 Zurich
+42 15 landing StormRider-496 -
+45 13 takeoff Comet-952 Rome
+46 13 landing StormRider-513 -
+47 15 takeoff IronBird-550 Istanbul
+47 17 takeoff Falcon-180 Zurich
+48 18 landing HawkLine-331 -
+50 15 takeoff SkyJet-537 Warsaw
+49 13 takeoff CloudRunner-399 Vienna
+54 13 landing HawkLine-808 -
+55 15 takeoff JetStream-221 Dublin
+56 17 takeoff Falcon-301 Istanbul
+56 14 landing SkyJet-188 -
+61 15 landing StormRider-949 -
+61 14 takeoff Falcon-350 Paris
+64 13 takeoff JetStream-878 Stockholm
+64 15 landing IronBird-946 -
+66 13 landing CloudRunner-906 -
+66 17 takeoff StarWolf-692 Dublin
+69 15 takeoff Falcon-349 Berlin
+75 16 landing IronBird-170 -
+76 17 landing TerraWing-394 -
+79 13 landing Phoenix-397 -
+85 18 takeoff Phoenix-684 Paris
+86 15 landing SilverWing-973 -
+88 16 takeoff CloudRunner-574 Dublin
+90 14 landing SkyJet-921 -
+94 14 takeoff JetStream-673 Rome
+94 12 landing Phoenix-238 -
+97 15 takeoff Phoenix-611 Tokyo
+95 15 landing Phoenix-345 -
+96 16 takeoff MoonJet-294 Warsaw
+96 15 takeoff SkyJet-542 Athens
+98 14 takeoff StormRider-703 Istanbul
+99 12 takeoff StormRider-718 Munich
+101 18 takeoff StarWolf-800 Vienna
+106 16 landing Phoenix-785 -
+106 17 landing Comet-619 -
+110 14 landing StormRider-367 -
+110 15 takeoff SkyJet-319 Vienna
+112 16 takeoff StormRider-607 Copenhagen
+112 14 landing TerraWing-222 -
+113 14 landing IronBird-960 -
+113 16 takeoff Falcon-476 Stockholm
+115 15 takeoff Phoenix-772 Zurich
+115 18 landing Falcon-541 -
+122 15 landing JetStream-790 -
+123 17 takeoff CloudRunner-668 Madrid
+126 12 takeoff TerraWing-670 Zurich
+128 16 landing MoonJet-666 -
+139 12 takeoff Falcon-984 Milan
+141 13 landing CloudRunner-439 -
+141 13 landing JetStream-992 -
+141 17 landing SkyJet-945 -
+146 13 takeoff Phoenix-640 Tokyo
+148 17 landing CloudRunner-613 -
+149 14 takeoff StormRider-336 Zurich
+156 15 landing AeroStar-866 -
+155 12 landing Falcon-208 -
+157 12 landing StormRider-745 -
+157 18 takeoff StarWolf-655 Berlin
+161 16 landing StarWolf-673 -
+171 17 takeoff StormRider-299 Oslo
+172 18 takeoff Falcon-173 Berlin
+172 13 takeoff MoonJet-664 Istanbul
+178 15 takeoff CloudRunner-442 Athens
+183 13 takeoff CloudRunner-891 Tokyo
+184 18 landing StarWolf-967 -
+186 12 takeoff SkyJet-533 Zurich
+187 16 takeoff Comet-568 Oslo
+188 18 takeoff MoonJet-236 Dublin
+189 14 takeoff CloudRunner-614 Copenhagen
+190 17 takeoff Comet-222 Paris
+190 13 landing Phoenix-581 -
+191 17 landing HawkLine-821 -
+193 12 takeoff StormRider-186 Istanbul
+194 12 takeoff TerraWing-808 Copenhagen
+194 15 landing StormRider-152 -
+198 12 takeoff Comet-150 Milan
+199 16 landing StormRider-189 -
+199 18 landing TerraWing-861 -
+205 13 landing HawkLine-926 -
+206 15 landing Falcon-520 -
+207 17 takeoff SkyJet-133 Vienna
+208 15 landing SilverWing-491 -
+211 18 takeoff AeroStar-547 Berlin
+209 17 landing CloudRunner-236 -
+215 15 landing CloudRunner-770 -
+217 15 takeoff JetStream-565 Budapest
+220 14 takeoff Phoenix-130 Zurich
+221 17 landing CloudRunner-860 -
+224 13 takeoff JetStream-676 Tokyo
+227 12 takeoff AeroStar-335 Athens
+225 18 landing Comet-125 -
+230 12 landing HawkLine-110 -
+234 15 takeoff IronBird-501 Budapest
+235 18 takeoff IronBird-386 Athens
+236 14 landing Phoenix-374 -
+243 17 takeoff TerraWing-911 Rome
+247 15 landing StormRider-253 -
+246 14 landing IronBird-625 -
+249 14 takeoff AeroStar-754 Vienna
+249 13 landing Falcon-279 -
+255 16 landing SilverWing-594 -
+257 16 landing MoonJet-725 -
+258 13 landing Nimbus-227 -
+262 14 takeoff SilverWing-782 Budapest
+260 17 takeoff SilverWing-939 Dublin
+264 13 takeoff StarWolf-817 Munich
+265 18 takeoff Comet-510 Stockholm
+267 16 takeoff SkyJet-608 Vienna
+286 15 landing StormRider-685 -
+288 18 takeoff Comet-308 Stockholm
+292 14 landing HawkLine-461 -
+296 15 takeoff IronBird-983 Zurich
+299 13 landing CloudRunner-677 -
+299 17 takeoff MoonJet-146 Rome
+302 17 landing StormRider-421 -
+302 16 takeoff Phoenix-481 Istanbul
+303 17 takeoff StarWolf-675 Istanbul
+305 18 takeoff CloudRunner-290 Madrid
+306 18 takeoff TerraWing-393 Tokyo
+308 17 landing StarWolf-517 -
+312 12 takeoff Falcon-348 Munich
+316 18 landing AeroStar-874 -
+318 12 landing Nimbus-954 -
+321 16 landing SkyJet-983 -
+321 16 landing TerraWing-110 -
+329 15 takeoff CloudRunner-923 Copenhagen
+329 18 landing CloudRunner-738 -
+330 12 landing IronBird-565 -
+330 14 landing SkyJet-917 -
+330 18 landing Nimbus-723 -
+330 13 landing Comet-879 -
+331 17 takeoff Nimbus-858 Copenhagen
+332 18 landing StormRider-581 -
+334 18 landing CloudRunner-114 -
+338 15 landing SilverWing-922 -
+340 16 takeoff HawkLine-335 Rome
+349 18 landing Phoenix-517 -
+351 13 takeoff CloudRunner-287 Istanbul
+351 17 takeoff StormRider-386 Munich
+352 13 takeoff StarWolf-121 Stockholm
+352 17 takeoff StormRider-559 Milan
+355 18 landing HawkLine-956 -
+364 16 landing Falcon-630 -
+370 18 landing HawkLine-606 -
+372 13 landing Falcon-665 -
+376 14 takeoff MoonJet-712 Oslo
+374 15 landing StormRider-361 -
+374 17 landing HawkLine-443 -
+375 13 takeoff Nimbus-358 Rome
+376 13 takeoff SilverWing-362 Athens
+377 14 takeoff AeroStar-529 Rome
+378 15 landing CloudRunner-293 -
+376 13 landing StormRider-881 -
+379 17 landing StarWolf-586 -
+380 12 takeoff JetStream-855 Stockholm
+381 14 takeoff Nimbus-554 Warsaw
+381 15 takeoff SkyJet-514 Warsaw
+387 16 takeoff Phoenix-898 Prague
+396 16 takeoff HawkLine-665 Munich
+399 16 landing MoonJet-792 -
+404 16 landing JetStream-372 -
+411 13 takeoff Comet-305 Oslo
+422 12 landing Nimbus-674 -
+429 15 takeoff SilverWing-292 Stockholm
+429 16 landing Falcon-376 -
+431 15 takeoff SkyJet-486 Milan
+432 18 takeoff HawkLine-633 Madrid
+434 15 takeoff IronBird-438 Tokyo
+435 13 takeoff IronBird-958 Rome
+435 12 takeoff IronBird-534 Helsinki
+446 18 landing MoonJet-819 -
+451 15 landing JetStream-510 -
+452 12 takeoff StormRider-682 Madrid
+453 16 takeoff IronBird-376 Oslo
+455 17 takeoff StormRider-408 Milan
+459 15 takeoff SkyJet-270 Madrid
+460 15 takeoff SkyJet-809 Warsaw
+460 13 takeoff IronBird-636 Madrid
+461 14 takeoff TerraWing-496 Helsinki
+461 13 landing StarWolf-668 -
+461 12 landing JetStream-566 -
+463 12 landing CloudRunner-964 -
+463 15 landing Comet-284 -
+466 15 takeoff JetStream-788 Stockholm
+467 14 takeoff MoonJet-107 Helsinki
+475 17 takeoff SkyJet-575 Helsinki
+475 18 takeoff CloudRunner-483 Milan
+475 17 takeoff Nimbus-490 Oslo
+479 12 landing JetStream-721 -
+479 16 landing StormRider-335 -
+480 18 landing StarWolf-145 -
+481 17 landing Falcon-677 -
+482 13 takeoff Falcon-798 Milan
+482 18 landing IronBird-565 -
+485 16 landing SilverWing-923 -
+487 18 takeoff AeroStar-519 Dublin
+489 13 landing CloudRunner-454 -
+492 18 landing Falcon-542 -
+494 18 landing IronBird-183 -
+495 12 landing Nimbus-144 -
+495 16 landing AeroStar-263 -
+498 17 takeoff JetStream-158 Oslo
+499 16 landing Comet-926 -
+502 15 landing StarWolf-610 -
+504 14 landing StormRider-136 -
+508 17 landing Falcon-198 -
+509 18 landing TerraWing-132 -
+509 15 takeoff AeroStar-957 Paris
+515 15 landing StarWolf-118 -
+514 12 landing IronBird-289 -
+523 15 landing AeroStar-142 -
+528 15 takeoff Phoenix-514 Paris
+532 16 takeoff StarWolf-765 Warsaw
+534 15 takeoff SilverWing-166 Tokyo
+534 16 takeoff SilverWing-528 Berlin
+542 13 landing CloudRunner-371 -
+544 17 takeoff TerraWing-364 Zurich
+549 14 landing Nimbus-202 -
+550 13 takeoff TerraWing-317 Milan
+555 15 landing IronBird-612 -
+555 12 takeoff CloudRunner-445 Helsinki
+557 12 landing TerraWing-260 -
+562 16 takeoff Falcon-955 Madrid
+565 15 landing MoonJet-941 -
+568 15 landing Falcon-396 -
+570 18 takeoff SilverWing-224 Dublin
+571 14 landing JetStream-178 -
+579 18 takeoff HawkLine-319 Warsaw
+581 16 landing SilverWing-175 -
+583 16 landing JetStream-492 -
+598 18 landing Nimbus-988 -
+603 17 landing Falcon-926 -
+607 14 landing SkyJet-561 -
+607 12 landing Nimbus-626 -
+609 14 takeoff Comet-693 Tokyo
+609 14 takeoff HawkLine-561 Stockholm
+614 16 takeoff HawkLine-288 Berlin
+613 12 takeoff SilverWing-257 Madrid
+613 18 takeoff Nimbus-516 Paris
+622 14 takeoff MoonJet-860 Milan
+622 13 takeoff StarWolf-683 Warsaw
+627 17 landing IronBird-700 -
+627 12 landing StarWolf-445 -
+632 14 takeoff JetStream-182 Milan
+637 16 takeoff Comet-568 Paris
+638 15 takeoff Phoenix-223 Milan
+640 13 takeoff CloudRunner-947 Paris
+643 18 landing SilverWing-518 -
+646 16 takeoff HawkLine-504 Prague
+646 13 landing StormRider-752 -
+664 12 landing Nimbus-116 -
+664 17 takeoff JetStream-802 Stockholm
+664 18 takeoff SkyJet-294 Rome
+666 16 landing SkyJet-291 -
+670 18 takeoff SkyJet-910 Dublin
+671 13 landing Falcon-348 -
+678 17 landing StormRider-539 -
+677 14 landing StormRider-676 -
+682 16 takeoff IronBird-600 Vienna
+682 16 landing SkyJet-158 -
+685 17 takeoff Nimbus-787 Warsaw
+687 13 takeoff AeroStar-838 Warsaw
+687 12 landing CloudRunner-676 -
+688 15 takeoff AeroStar-830 Zurich
+692 15 takeoff MoonJet-805 Milan
+690 15 landing TerraWing-135 -
+692 14 takeoff Nimbus-671 Zurich
+693 18 takeoff TerraWing-122 Berlin
+694 13 landing HawkLine-382 -
+695 18 landing JetStream-420 -
+700 18 landing MoonJet-969 -
+699 18 takeoff StormRider-233 Milan
+702 14 landing IronBird-843 -
+702 13 landing JetStream-757 -
+703 16 landing StormRider-612 -
+703 13 takeoff Nimbus-735 Stockholm
+703 18 landing Phoenix-128 -
+705 15 landing IronBird-947 -
+706 12 takeoff SkyJet-711 Milan
+707 16 landing SkyJet-310 -
+707 15 landing MoonJet-570 -
+714 18 landing StormRider-512 -
+714 18 takeoff StormRider-663 Prague
+714 12 takeoff SilverWing-665 Prague
+716 13 takeoff Nimbus-435 Stockholm
+719 15 takeoff HawkLine-866 Berlin
+717 13 takeoff AeroStar-786 Dublin
+720 13 takeoff Falcon-270 Helsinki
+724 17 landing Nimbus-653 -
+725 14 landing StormRider-245 -
+729 15 landing StarWolf-965 -
+729 13 landing CloudRunner-961 -
+729 13 takeoff Nimbus-276 Tokyo
+731 15 takeoff AeroStar-313 Rome
+733 13 landing StarWolf-297 -
+733 13 takeoff CloudRunner-969 Zurich
+738 17 landing Nimbus-844 -
+740 12 takeoff StormRider-865 Dublin
+740 18 landing StormRider-569 -
+740 13 landing Phoenix-232 -
+741 14 takeoff TerraWing-522 Berlin
+743 14 landing TerraWing-135 -
+743 16 landing Comet-493 -
+744 13 takeoff Comet-886 Madrid
+746 14 takeoff IronBird-480 Budapest
+746 13 takeoff StormRider-669 Milan
+746 18 takeoff SilverWing-327 Berlin
+749 17 takeoff MoonJet-744 Stockholm
+750 16 takeoff SilverWing-809 Copenhagen
+757 17 landing Falcon-353 -
+758 13 takeoff TerraWing-352 Dublin
+759 12 takeoff IronBird-838 Athens
+760 14 landing SkyJet-691 -
+764 16 landing Falcon-548 -
+768 12 landing SkyJet-108 -
+772 13 takeoff IronBird-655 Copenhagen
+772 17 takeoff StormRider-939 Madrid
+774 18 landing TerraWing-818 -
+776 12 landing TerraWing-807 -
+776 15 takeoff IronBird-605 Stockholm
+780 16 takeoff StormRider-550 Madrid
+778 14 takeoff HawkLine-956 Istanbul
+780 18 landing HawkLine-767 -
+780 13 takeoff CloudRunner-994 Berlin
+781 16 landing CloudRunner-370 -
+783 17 landing IronBird-173 -
+783 14 takeoff SilverWing-773 Paris
+781 13 takeoff IronBird-729 Athens
+785 16 landing CloudRunner-734 -
+791 14 takeoff StarWolf-381 Copenhagen
+791 16 takeoff MoonJet-169 Berlin
+792 14 landing Nimbus-986 -
+797 18 takeoff CloudRunner-622 Athens
+800 15 takeoff StarWolf-807 Dublin
+804 15 landing JetStream-274 -
+801 18 landing Nimbus-160 -
+801 15 landing AeroStar-870 -
+804 12 takeoff MoonJet-542 Stockholm
+805 12 takeoff SilverWing-212 Milan
+807 15 takeoff Falcon-703 Paris
+811 17 landing Falcon-442 -
+812 15 landing IronBird-104 -
+812 18 landing Falcon-112 -
+815 16 landing Falcon-298 -
+817 17 landing StarWolf-233 -
+817 14 landing IronBird-573 -
+817 13 takeoff Nimbus-719 Tokyo
+818 12 takeoff SkyJet-870 Dublin
+819 14 takeoff StormRider-538 Zurich
+820 17 takeoff MoonJet-701 Tokyo
+821 14 landing CloudRunner-327 -
+822 13 landing Falcon-743 -
+822 18 takeoff SilverWing-409 Milan
+823 13 landing StormRider-405 -
+830 17 takeoff IronBird-879 Tokyo
+829 14 landing Falcon-571 -
+831 16 landing Phoenix-466 -
+834 14 landing HawkLine-792 -
+836 15 landing CloudRunner-559 -
+838 18 takeoff SilverWing-513 Warsaw
+838 13 takeoff HawkLine-367 Zurich
+840 18 takeoff Nimbus-317 Tokyo
+842 14 takeoff JetStream-844 Budapest
+844 13 takeoff HawkLine-807 Dublin
+844 15 takeoff CloudRunner-897 Dublin
+845 12 landing JetStream-800 -
+845 16 takeoff AeroStar-719 Vienna
+845 18 takeoff MoonJet-238 Vienna
+850 12 landing StarWolf-181 -
+848 17 landing Comet-324 -
+852 14 landing CloudRunner-485 -
+853 17 landing Falcon-894 -
+854 16 landing AeroStar-642 -
+855 14 landing HawkLine-608 -
+855 14 takeoff Phoenix-783 Copenhagen
+856 17 takeoff StarWolf-978 Madrid
+860 18 landing CloudRunner-264 -
+858 15 landing IronBird-799 -
+860 12 landing IronBird-352 -
+862 12 takeoff Phoenix-475 Paris
+871 15 landing TerraWing-873 -
+871 13 landing MoonJet-997 -
+873 18 landing TerraWing-150 -
+874 13 takeoff TerraWing-755 Tokyo
+878 17 landing CloudRunner-985 -
+880 17 takeoff StarWolf-960 Prague
+880 16 takeoff StormRider-330 Tokyo
+881 13 takeoff CloudRunner-157 Warsaw
+881 14 takeoff JetStream-775 Copenhagen
+881 16 landing HawkLine-159 -
+886 17 takeoff Phoenix-254 Athens
+891 12 landing StarWolf-462 -
+891 15 landing SilverWing-723 -
+894 17 takeoff StarWolf-722 Prague
+896 18 takeoff Falcon-336 Berlin
+898 12 landing Falcon-849 -
+898 18 landing IronBird-486 -
+900 16 landing Falcon-176 -
+899 13 landing SkyJet-499 -
+900 16 landing Phoenix-461 -
+903 15 landing CloudRunner-476 -
+904 13 landing Falcon-798 -
+906 16 landing CloudRunner-395 -
+906 14 landing StarWolf-778 -
+907 14 landing TerraWing-891 -
+911 17 takeoff CloudRunner-231 Paris
+912 17 landing MoonJet-624 -
+912 15 takeoff StarWolf-185 Rome
+914 14 takeoff MoonJet-734 Stockholm
+916 17 landing Nimbus-690 -
+916 14 landing JetStream-182 -
+920 16 landing HawkLine-361 -
+920 12 landing Falcon-890 -
+922 14 landing Comet-496 -
+924 13 landing IronBird-729 -
+924 17 landing MoonJet-391 -
+926 15 takeoff HawkLine-279 Vienna
+928 14 takeoff TerraWing-303 Helsinki
+931 18 landing AeroStar-506 -
+928 16 landing JetStream-233 -
+929 13 takeoff Falcon-626 Tokyo
+929 17 landing IronBird-157 -
+932 16 landing CloudRunner-118 -
+932 16 takeoff CloudRunner-193 Stockholm
+934 16 landing MoonJet-382 -
+936 18 takeoff MoonJet-335 Dublin
+939 14 takeoff Falcon-313 Istanbul
+939 16 takeoff AeroStar-432 Munich
+940 15 takeoff AeroStar-290 Tokyo
+948 14 takeoff Nimbus-180 Tokyo
+948 15 takeoff AeroStar-340 Rome
+949 13 takeoff Comet-517 Budapest
+950 13 takeoff HawkLine-761 Warsaw
+949 18 takeoff SilverWing-366 Helsinki
+950 15 takeoff Nimbus-638 Athens
+951 13 landing MoonJet-347 -
+952 16 landing Falcon-196 -
+952 18 landing StormRider-995 -
+953 15 landing CloudRunner-577 -
+954 14 landing StormRider-346 -
+965 18 takeoff TerraWing-805 Helsinki
+975 15 landing SkyJet-837 -
+977 14 landing TerraWing-183 -
+980 14 takeoff Nimbus-986 Warsaw
+980 13 takeoff AeroStar-687 Berlin
+982 18 landing TerraWing-441 -
+987 15 landing Falcon-269 -
+993 13 landing Falcon-974 -
+996 13 takeoff Phoenix-529 Warsaw
+997 13 takeoff StormRider-468 Paris
+997 14 landing Falcon-393 -
+999 18 landing CloudRunner-432 -
+1001 12 landing Falcon-440 -
+998 18 landing Nimbus-563 -
+1005 14 takeoff Nimbus-815 Istanbul
+1006 18 landing Nimbus-131 -
+1006 18 landing SilverWing-316 -
+1009 17 landing AeroStar-437 -
+1010 17 landing Phoenix-990 -
+1013 18 landing StormRider-603 -
+1016 17 landing CloudRunner-905 -
+1017 12 takeoff SkyJet-153 Berlin
+1018 12 takeoff AeroStar-392 Milan
+1019 12 takeoff AeroStar-331 Oslo
+1019 16 landing HawkLine-107 -
+1023 17 takeoff HawkLine-711 Prague
+1024 14 landing SilverWing-159 -
+1022 16 landing JetStream-556 -
+1027 17 landing SkyJet-244 -
+1036 15 landing HawkLine-485 -
+1038 13 takeoff Nimbus-424 Tokyo
+1040 12 takeoff StormRider-928 Tokyo
+1045 17 landing MoonJet-502 -
+1055 15 landing StormRider-561 -
+1064 18 takeoff CloudRunner-408 Berlin
+1064 17 takeoff HawkLine-716 Munich
+1069 16 takeoff JetStream-967 Prague
+1070 14 landing Phoenix-243 -
+1070 16 landing Phoenix-844 -
+1072 13 landing CloudRunner-510 -
+1077 16 takeoff StormRider-530 Tokyo
+1076 12 landing MoonJet-149 -
+1077 12 landing Falcon-903 -
+1086 18 landing HawkLine-623 -
+1088 13 takeoff StarWolf-199 Paris
+1090 16 takeoff StormRider-875 Prague
+1091 14 landing AeroStar-940 -
+1091 14 landing SkyJet-331 -
+1092 14 takeoff Falcon-921 Helsinki
+1093 15 takeoff AeroStar-301 Berlin
+1096 16 landing HawkLine-425 -
+1096 12 takeoff SkyJet-510 Paris
+1097 17 landing AeroStar-126 -
+1104 15 landing Phoenix-966 -
+1106 17 takeoff Nimbus-776 Milan
+1110 12 takeoff StarWolf-255 Madrid
+1107 12 takeoff SilverWing-347 Budapest
+1108 14 takeoff CloudRunner-978 Milan
+1111 14 landing SilverWing-768 -
+1113 13 landing StarWolf-592 -
+1119 17 takeoff SkyJet-206 Berlin
+1120 12 takeoff Phoenix-533 Budapest
+1119 12 landing SilverWing-300 -
+1126 17 landing JetStream-423 -
+1127 18 landing Nimbus-919 -
+1127 15 takeoff StormRider-601 Munich
+1129 12 takeoff SilverWing-215 Warsaw
+1134 18 landing StarWolf-958 -
+1135 16 takeoff Falcon-387 Prague
+1136 14 takeoff Phoenix-524 Rome
+1139 12 takeoff Nimbus-522 Copenhagen
+1141 12 landing IronBird-970 -
+1146 13 landing Nimbus-947 -
+1155 17 takeoff Nimbus-890 Oslo
+1155 17 takeoff IronBird-560 Dublin
+1157 12 landing StormRider-895 -
+1155 16 takeoff CloudRunner-180 Istanbul
+1157 17 landing Falcon-245 -
+1162 18 takeoff Nimbus-976 Paris
+1164 16 takeoff HawkLine-218 Istanbul
+1166 17 takeoff TerraWing-382 Oslo
+1171 18 takeoff TerraWing-406 Vienna
+1173 12 landing Comet-927 -
+1175 17 landing CloudRunner-253 -
+1175 15 landing StarWolf-588 -
+1176 12 takeoff CloudRunner-164 Prague
+1177 15 takeoff SilverWing-401 Istanbul
+1178 17 takeoff Phoenix-934 Helsinki
+1180 14 landing StarWolf-152 -
+1183 13 takeoff CloudRunner-571 Istanbul
+1186 16 landing IronBird-205 -
+1184 17 landing StarWolf-505 -
+1186 12 landing Phoenix-141 -
+1187 18 landing Phoenix-243 -
+1188 12 landing HawkLine-148 -
+1189 16 takeoff Comet-409 Milan
+1191 15 takeoff Comet-291 Copenhagen
+1196 13 landing SilverWing-135 -
+1196 12 takeoff StarWolf-129 Zurich
+1200 12 landing JetStream-405 -
+1203 13 landing HawkLine-134 -
+1203 17 landing Nimbus-834 -
+1204 18 takeoff IronBird-185 Paris
+1204 12 takeoff JetStream-268 Istanbul
+1209 15 takeoff Falcon-259 Paris
+1212 14 takeoff Falcon-701 Munich
+1213 18 takeoff HawkLine-565 Stockholm
+1214 12 landing StormRider-189 -
+1214 12 landing TerraWing-838 -
+1218 12 takeoff AeroStar-938 Madrid
+1221 16 landing Phoenix-586 -
+1221 15 takeoff AeroStar-808 Munich
+1223 14 takeoff AeroStar-707 Berlin
+1225 16 takeoff StormRider-967 Rome
+1229 12 landing HawkLine-733 -
+1231 12 landing AeroStar-891 -
+1231 17 takeoff IronBird-248 Istanbul
+1231 16 landing Nimbus-998 -
+1233 13 landing MoonJet-250 -
+1234 18 landing CloudRunner-144 -
+1235 18 takeoff AeroStar-591 Budapest
+1237 15 takeoff HawkLine-145 Athens
+1239 16 takeoff TerraWing-711 Paris
+1239 16 takeoff CloudRunner-433 Prague
+1240 16 landing HawkLine-438 -
+1243 16 takeoff Phoenix-315 Budapest
+1242 17 takeoff SkyJet-239 Paris
+1243 16 takeoff StarWolf-748 Prague
+1246 15 takeoff Falcon-127 Prague
+1247 14 takeoff Comet-333 Athens
+1247 13 takeoff AeroStar-564 Prague
+1250 14 landing StarWolf-769 -
+1249 18 takeoff IronBird-839 Berlin
+1252 13 takeoff AeroStar-737 Copenhagen
+1253 17 landing StarWolf-344 -
+1255 16 landing StarWolf-417 -
+1256 15 landing MoonJet-905 -
+1257 16 landing Nimbus-684 -
+1258 13 landing IronBird-483 -
+1260 17 landing Falcon-538 -
+1260 15 landing StormRider-858 -
+1264 13 takeoff AeroStar-295 Rome
+1266 14 landing StormRider-431 -
+1268 18 landing Comet-785 -
+1269 17 landing Phoenix-864 -
+1273 17 takeoff Nimbus-560 Madrid
+1275 12 takeoff Phoenix-698 Vienna
+1273 12 takeoff TerraWing-294 Berlin
+1274 17 takeoff Falcon-867 Vienna
+1274 13 landing CloudRunner-648 -
+1277 15 takeoff Comet-700 Vienna
+1278 12 landing HawkLine-566 -
+1280 17 landing SilverWing-540 -
+1277 17 takeoff StormRider-783 Paris
+1282 18 landing IronBird-681 -
+1283 15 takeoff TerraWing-578 Athens
+1287 12 takeoff SilverWing-116 Oslo
+1288 17 landing AeroStar-692 -
+1288 17 landing MoonJet-818 -
+1289 18 takeoff HawkLine-922 Warsaw
+1290 16 landing TerraWing-554 -
+1294 15 landing Nimbus-177 -
+1297 18 landing StarWolf-477 -
+1306 17 landing StarWolf-501 -
+1307 15 landing SkyJet-646 -
+1308 15 landing Nimbus-701 -
+1309 17 landing IronBird-889 -
+1308 13 takeoff StarWolf-587 Rome
+1311 17 takeoff IronBird-640 Dublin
+1317 17 landing SkyJet-746 -
+1321 16 takeoff StormRider-262 Dublin
+1325 15 landing StarWolf-259 -
+1325 17 landing SilverWing-774 -
+1325 16 takeoff MoonJet-255 Paris
+1328 14 landing Phoenix-608 -
+1330 15 landing JetStream-196 -
+1333 12 landing CloudRunner-374 -
+1334 14 takeoff StormRider-449 Milan
+1334 15 landing Falcon-218 -
+1338 18 landing Phoenix-804 -
+1340 13 takeoff Phoenix-863 Istanbul
+1339 13 takeoff SilverWing-680 Vienna
+1341 14 landing SilverWing-886 -
+1341 12 landing AeroStar-541 -
+1343 13 takeoff AeroStar-270 Stockholm
+1343 18 landing TerraWing-911 -
+1344 12 takeoff HawkLine-653 Madrid
+1346 12 takeoff Falcon-862 Athens
+1349 16 takeoff Comet-378 Copenhagen
+1351 14 landing StarWolf-356 -
+1353 17 takeoff MoonJet-985 Athens
+1355 15 landing AeroStar-688 -
+1355 13 takeoff SilverWing-695 Budapest
+1355 18 landing StarWolf-910 -
+1356 16 takeoff CloudRunner-171 Tokyo
+1362 14 landing SilverWing-358 -
+1363 16 landing SilverWing-701 -
+1364 15 landing StarWolf-329 -
+1364 13 takeoff TerraWing-899 Madrid
+1365 16 landing StarWolf-296 -
+1365 12 landing SilverWing-837 -
+1367 18 landing CloudRunner-365 -
+1365 16 takeoff JetStream-190 Istanbul
+1373 13 landing TerraWing-894 -
+1373 12 landing Phoenix-190 -
+1375 18 landing SilverWing-682 -
+1377 17 takeoff CloudRunner-855 Munich
+1380 13 takeoff StarWolf-982 Budapest
+1383 16 landing IronBird-787 -
+1382 12 landing AeroStar-646 -
+1386 16 takeoff SilverWing-896 Tokyo
+1387 12 landing AeroStar-802 -
+1387 14 landing Phoenix-236 -
+1393 16 landing Nimbus-580 -
+1394 12 takeoff HawkLine-987 Tokyo
+1397 18 landing Phoenix-265 -
+1398 16 takeoff Nimbus-215 Paris
+1402 17 landing TerraWing-948 -
+1403 13 landing AeroStar-431 -
+1404 15 landing JetStream-838 -
+1404 17 landing JetStream-432 -
+1407 15 takeoff CloudRunner-720 Rome
+1408 15 landing Falcon-733 -
+1408 12 takeoff MoonJet-308 Istanbul
+1412 12 landing StormRider-641 -
+1417 13 landing Nimbus-832 -
+1420 13 landing MoonJet-761 -
+1422 16 landing SilverWing-437 -
+1424 16 landing Falcon-884 -
+1427 13 landing HawkLine-647 -
+1425 17 landing Phoenix-756 -
+1428 16 takeoff TerraWing-767 Helsinki
+1429 17 landing CloudRunner-789 -
+1432 13 landing IronBird-856 -
+1433 17 takeoff MoonJet-852 Stockholm
+1435 14 landing AeroStar-539 -
+1439 16 takeoff Falcon-386 Oslo

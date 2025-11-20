@@ -6,6 +6,8 @@
 #include <QPushButton>
 #include <QMessageBox>
 #include <QInputDialog>
+#include <bits/stdc++.h>
+#include <QKeyEvent>
 
 AeroWindow::AeroWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,6 +21,12 @@ AeroWindow::AeroWindow(QWidget *parent)
     QPushButton *btn = new QPushButton("Статистика по полосе", this);
     btn->setGeometry(20, 20, 220, 30);
     connect(btn, &QPushButton::clicked, this, &AeroWindow::showRunwaySelector);
+
+    QPushButton *addBtn = new QPushButton("Добавить самолёт", this);
+    addBtn->setGeometry(20, 60, 220, 30);
+    connect(addBtn, &QPushButton::clicked, this, [this]() {
+        this->addNewFlightDialog();
+    });
 
     frameTimer_.setInterval(16);
     connect(&frameTimer_, &QTimer::timeout, this, &AeroWindow::onFrame);
@@ -34,39 +42,69 @@ void AeroWindow::loadFlights(const QString &filename) {
     }
 
     QTextStream in(&file);
-    QVector<int> busyUntil(100, 0);
 
-    QString firstLine = in.readLine().trimmed();
-    if (firstLine.startsWith("runways=")) {
-        runways_ = firstLine.mid(QString("runways=").length()).toInt();
-    } else {
-        runways_ = 10;
-        in.seek(0);
-    }
+    flights_.clear();
 
-    int half = qMax(1, runways_ / 2);
+    while (true) {
+        int start, duration;
+        QString type, name, city;
 
-    while (!in.atEnd()) {
-        int start, runway, duration;
-        QString type;
-        in >> start >> runway >> type >> duration;
-        if (in.status() != QTextStream::Ok || type.isEmpty()) continue;
+        in >> start >> duration >> type >> name >> city;
+
+        /*
+        Соня, просто здесь вставь че там надо было, отклонение какое-то, я не помню, и мне впадлу
+        */
+
+
+        if (in.status() != QTextStream::Ok)
+            break;
+
+        if (type.isEmpty())
+            break;
 
         bool landing = (type == "landing");
 
-        if (landing && runway < half) runway += half;
-        if (!landing && runway >= half) runway %= half;
+        if (landing)
+            city = "Янташубе";
 
-        if (start < busyUntil[runway])
-            start = busyUntil[runway];
-        busyUntil[runway] = start + duration;
-
-        flights_.append({start, runway, landing, duration});
+        flights_.append({ start, duration, landing, name, city, -1 });
     }
 
     file.close();
+
+    struct Node {
+        int finish;
+        int runway;
+        bool operator<(const Node &o) const {
+            return finish > o.finish;
+        }
+    };
+
+    QVector<Flight*> sorted;
+    sorted.reserve(flights_.size());
+    for (auto &f : flights_) sorted.append(&f);
+
+    std::sort(sorted.begin(), sorted.end(),
+              [](Flight *a, Flight *b) { return a->start < b->start; });
+
+    std::priority_queue<Node> pq;
+    int nextRunway = 0;
+
+    for (Flight *f : sorted) {
+        if (!pq.empty() && pq.top().finish <= f->start) {
+            auto top = pq.top();
+            pq.pop();
+            f->runway = top.runway;
+        } else {
+            f->runway = nextRunway++;
+        }
+        pq.push({ f->start + f->duration, f->runway });
+    }
+
+    runways_ = std::min(nextRunway, 10);
     stats_.resize(runways_);
 }
+
 
 void AeroWindow::onFrame() {
     double dtSec = clock_.restart() / 1000.0;
@@ -120,14 +158,34 @@ void AeroWindow::paintEvent(QPaintEvent*) {
     const double lineWidth = std::max(1.0, 10.0 - runways_ * 0.3);
 
     p.setPen(QPen(QColor(60, 60, 60), lineWidth));
+    auto isRunwayBusy = [&](int r) {
+        for (const auto &f : active_) {
+            if (f.runway == r){
+                if(f.landing){
+                    return 1;
+                }
+                return 2;
+            }
+        }
+        return 0;
+    };
     for (int r = 0; r < runways_; ++r) {
+
         double x = pad + r * laneStep;
+
+        int busy = isRunwayBusy(r);
+        QColor col;
+
+        if(busy == 0) col = QColor(80, 80, 80);
+        else if(busy == 1) col = QColor(255, 120, 120);
+        else col = QColor(Qt::darkMagenta);
+
+        p.setPen(QPen(col, lineWidth));
         p.drawLine(QPointF(x, pad), QPointF(x, h - pad));
 
         p.setPen(Qt::white);
         p.setFont(QFont("Monospace", 9));
         p.drawText(QPointF(x - 20, h - 10), QString("R%1").arg(r + 1));
-        p.setPen(QPen(QColor(60, 60, 60), lineWidth));
     }
 
     for (auto it = active_.begin(); it != active_.end();) {
@@ -169,9 +227,9 @@ void AeroWindow::paintEvent(QPaintEvent*) {
             p.drawEllipse(QPointF(x, y), 10, 16);
 
             if (it->landing)
-                p.drawLine(QPointF(x - 5, y - 10), QPointF(x + 5, y - 10)); // вниз
+                p.drawLine(QPointF(x - 5, y - 10), QPointF(x + 5, y - 10));
             else
-                p.drawLine(QPointF(x - 5, y + 10), QPointF(x + 5, y + 10)); // вверх
+                p.drawLine(QPointF(x - 5, y + 10), QPointF(x + 5, y + 10));
         }
 
         ++it;
@@ -180,11 +238,12 @@ void AeroWindow::paintEvent(QPaintEvent*) {
     int totalMin = (int)std::floor(simMinute_);
     int hours = totalMin / 60;
     int minutes = totalMin % 60;
-    QString timeStr = QString("Время: %1:%2 | Активных: %3 | Полос: %4")
+    QString timeStr = QString("Время: %1:%2 | Активных: %3 | Полос: %4 | Скорость: %5 минут в секунду")
                           .arg(hours, 2, 10, QChar('0'))
                           .arg(minutes, 2, 10, QChar('0'))
                           .arg(active_.size())
-                          .arg(runways_);
+                          .arg(runways_)
+                          .arg(minutesPerSecond_);
     p.setPen(Qt::white);
     p.setFont(QFont("Monospace", 12));
     p.drawText(QRect(0, 0, w, 30), Qt::AlignCenter, timeStr);
@@ -207,14 +266,16 @@ void AeroWindow::showRunwaySelector() {
 }
 
 void AeroWindow::showRunwayDetails(int runway) {
-    QString info = QString("Полоса R%1\n\n").arg(runway + 1);
-    info += "Время  | Тип     | Длит. | Статус\n";
-    info += "-----------------------------------\n";
+    QString info;
+    info += QString("Полоса R%1\n\n").arg(runway + 1);
+    info += "Время | Самолёт        | Город         | Тип     | Длит. | Статус\n";
+    info += "-------------------------------------------------------------------\n";
 
     for (const auto &f : flights_) {
         if (f.runway != runway) continue;
 
         QString type = f.landing ? "посадка" : "взлёт";
+
         QString status;
         if (simMinute_ >= f.start + f.duration)
             status = "завершён";
@@ -224,13 +285,113 @@ void AeroWindow::showRunwayDetails(int runway) {
             status = "ожидается";
 
         int h = f.start / 60, m = f.start % 60;
-        info += QString("%1:%2  | %3 | %4 мин | %5\n")
+
+        QString name  = f.name.leftJustified(14, ' ');
+        QString city  = f.city.leftJustified(12, ' ');
+        QString typeS = type.leftJustified(7, ' ');
+
+        info += QString("%1:%2 | %3 | %4 | %5 | %6 мин | %7\n")
                     .arg(h, 2, 10, QChar('0'))
                     .arg(m, 2, 10, QChar('0'))
-                    .arg(type, -7)
-                    .arg(f.duration, 2)
+                    .arg(name)
+                    .arg(city)
+                    .arg(typeS)
+                    .arg(f.duration)
                     .arg(status);
     }
 
     QMessageBox::information(this, QString("Полоса R%1").arg(runway + 1), info);
 }
+
+void AeroWindow::keyPressEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_F) {
+        minutesPerSecond_ *= 2.0;
+        if (minutesPerSecond_ > 120) minutesPerSecond_ = 120;
+    }
+
+    if (event->key() == Qt::Key_S) {
+        minutesPerSecond_ *= 0.5;
+        if (minutesPerSecond_ < 0.1) minutesPerSecond_ = 0.1;
+    }
+
+    event->accept();
+}
+
+void AeroWindow::addNewFlightDialog() {
+    bool ok1, ok2;
+
+    QString name = QInputDialog::getText(this, "Самолёт", "Название:", QLineEdit::Normal, "", &ok1);
+    if (!ok1 || name.isEmpty()) return;
+
+    QStringList types = {"takeoff", "landing"};
+    QString type = QInputDialog::getItem(this, "Тип", "Тип манёвра:", types, 0, false, &ok1);
+    if (!ok1) return;
+
+    QString city;
+    if (type == "landing") {
+        city = "Янташубе";
+    } else {
+        city = QInputDialog::getText(this, "Город", "Куда следует:", QLineEdit::Normal, "", &ok1);
+        if (!ok1 || city.isEmpty()) return;
+    }
+
+    int start = QInputDialog::getInt(this, "Старт", "Время начала манёвра:", 0, 0, 100000, 1, &ok1);
+    if (!ok1) return;
+
+    int duration = QInputDialog::getInt(this, "Длительность", "Длительность (мин):", 1, 1, 10000, 1, &ok1);
+    if (!ok1) return;
+
+    bool landing = (type == "landing");
+
+    Flight f{ start, duration, landing, name, city, -1 };
+
+    assignRunwayForFlight(f);
+
+    flights_.append(f);
+
+    if (f.runway >= stats_.size())
+        stats_.resize(f.runway + 1);
+
+    if (simMinute_ < f.start + f.duration)
+        active_.append(f);
+
+    update();
+}
+
+
+void AeroWindow::assignRunwayForFlight(Flight &f) {
+    struct Node { int finish; int runway; };
+
+    QVector<Node> used;
+    used.reserve(flights_.size());
+
+    for (const auto &x : flights_) {
+        used.append({x.start + x.duration, x.runway});
+    }
+
+    QVector<int> runwayFinish(10, 0);
+
+    for (const auto &x : flights_)
+        runwayFinish[x.runway] = std::max(runwayFinish[x.runway], x.start + x.duration);
+
+    for (int r = 0; r < 10; r++) {
+        if (runwayFinish[r] <= f.start) {
+            f.runway = r;
+            runways_ = std::max(runways_, r + 1);
+            return;
+        }
+    }
+
+    for (int r = 0; r < 10; r++) {
+        if (runwayFinish[r] == 0) {
+            f.runway = r;
+            runways_ = std::max(runways_, r + 1);
+            return;
+        }
+    }
+
+    f.runway = std::min(9, runways_);
+    runways_ = std::min(10, runways_ + 1);
+}
+
+

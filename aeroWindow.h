@@ -8,9 +8,11 @@
 
 struct Flight {
     int start;
-    int runway;
-    bool landing;
     int duration;
+    bool landing;
+    QString name;
+    QString city;
+    int runway;
 };
 
 struct RunwayStats {
@@ -34,6 +36,8 @@ private:
     void loadFlights(const QString &filename);
     void spawnFlights(int minute);
     double progress(const Flight &f) const;
+    void addNewFlightDialog();
+    void assignRunwayForFlight(Flight &f);
 
     QVector<Flight> flights_;
     QVector<RunwayStats> stats_;
@@ -44,7 +48,7 @@ private:
     double simMinute_ = 0;
     int currentMinute_ = 0;
     double minutesPerSecond_ = 1.0;
-    int runways_ = 10;
+    int runways_;
     double totalSimTime_ = 0.0;
 
     QPixmap planePm_;
@@ -52,4 +56,5 @@ private:
 
 protected:
     void paintEvent(QPaintEvent*) override;
+    void keyPressEvent(QKeyEvent *event) override;
 };

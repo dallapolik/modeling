@@ -103,6 +103,10 @@ void AeroWindow::loadFlights(const QString &filename) {
 
     runways_ = std::min(nextRunway, 10);
     stats_.resize(runways_);
+
+    runwayPositions.clear();
+    for (int r = 0; r < runways_; ++r)
+        runwayPositions.append(r);
 }
 
 
@@ -159,19 +163,18 @@ void AeroWindow::paintEvent(QPaintEvent*) {
 
     p.setPen(QPen(QColor(60, 60, 60), lineWidth));
     auto isRunwayBusy = [&](int r) {
-        for (const auto &f : active_) {
-            if (f.runway == r){
-                if(f.landing){
-                    return 1;
-                }
-                return 2;
+        for (const auto &f : flights_) {
+            if (f.runway == r) {
+                if (simMinute_ >= f.start && simMinute_ < f.start + f.duration)
+                    return f.landing ? 1 : 2;
             }
         }
         return 0;
     };
-    for (int r = 0; r < runways_; ++r) {
+    for (int i = 0; i < runwayPositions.size(); ++i) {
 
-        double x = pad + r * laneStep;
+        int r = runwayPositions[i];
+        double x = pad + i * laneStep;
 
         int busy = isRunwayBusy(r);
         QColor col;
@@ -196,17 +199,11 @@ void AeroWindow::paintEvent(QPaintEvent*) {
         if (!it->landing) t = t * t;
         else t = 1.0 - (1.0 - t) * (1.0 - t);
 
-        double x = pad + it->runway * laneStep;
+        int i = runwayPositions.indexOf(it->runway);
+        double x = pad + i * laneStep;
         int yStart = it->landing ? pad : h - pad;
         int yEnd = it->landing ? h - pad : pad;
         int y = (int)std::round(yStart + (yEnd - yStart) * t);
-
-        // тень, нужна, если вместо картинки эллипсоид
-        /*p.setOpacity(0.25);
-        p.setBrush(Qt::black);
-        p.setPen(Qt::NoPen);
-        p.drawEllipse(QPointF(x + 8, y + 18), 15, 5);
-        p.setOpacity(1.0);*/
 
         if (!planePm_.isNull()) {
             QTransform tr;
@@ -345,7 +342,14 @@ void AeroWindow::addNewFlightDialog() {
 
     Flight f{ start, duration, landing, name, city, -1 };
 
-    assignRunwayForFlight(f);
+    if (!assignRunwayForFlight(f)) {
+        QMessageBox::warning(this, "Ошибка", "Самолёт нельзя добавить — нет свободных полос (максимум 10).");
+        return;
+    }
+
+    if (!runwayPositions.contains(f.runway))
+        runwayPositions.append(f.runway);
+
 
     flights_.append(f);
 
@@ -354,44 +358,36 @@ void AeroWindow::addNewFlightDialog() {
 
     if (simMinute_ < f.start + f.duration)
         active_.append(f);
-
     update();
 }
 
 
-void AeroWindow::assignRunwayForFlight(Flight &f) {
-    struct Node { int finish; int runway; };
+bool AeroWindow::assignRunwayForFlight(Flight &f)
+{
+    const int MAX_RUNWAYS = 10;
 
-    QVector<Node> used;
-    used.reserve(flights_.size());
+    QVector<int> runwayFinish(MAX_RUNWAYS, 0);
 
     for (const auto &x : flights_) {
-        used.append({x.start + x.duration, x.runway});
+        if (x.runway >= 0 && x.runway < MAX_RUNWAYS) {
+            int end = x.start + x.duration;
+            runwayFinish[x.runway] = std::max(runwayFinish[x.runway], end);
+        }
     }
 
-    QVector<int> runwayFinish(10, 0);
-
-    for (const auto &x : flights_)
-        runwayFinish[x.runway] = std::max(runwayFinish[x.runway], x.start + x.duration);
-
-    for (int r = 0; r < 10; r++) {
+    for (int r = 0; r < runways_; r++) {
         if (runwayFinish[r] <= f.start) {
             f.runway = r;
-            runways_ = std::max(runways_, r + 1);
-            return;
+            return true;
         }
     }
 
-    for (int r = 0; r < 10; r++) {
-        if (runwayFinish[r] == 0) {
-            f.runway = r;
-            runways_ = std::max(runways_, r + 1);
-            return;
-        }
+    if (runways_ < MAX_RUNWAYS) {
+        int r = runways_;
+        f.runway = r;
+        runways_++;
+        return true;
     }
 
-    f.runway = std::min(9, runways_);
-    runways_ = std::min(10, runways_ + 1);
+    return false;
 }
-
-

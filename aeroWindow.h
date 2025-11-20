@@ -37,11 +37,12 @@ private:
     void spawnFlights(int minute);
     double progress(const Flight &f) const;
     void addNewFlightDialog();
-    void assignRunwayForFlight(Flight &f);
+    bool assignRunwayForFlight(Flight &f);
 
     QVector<Flight> flights_;
     QVector<RunwayStats> stats_;
     QVector<Flight> active_;
+    QVector<int> runwayPositions;
 
     QTimer frameTimer_;
     QElapsedTimer clock_;

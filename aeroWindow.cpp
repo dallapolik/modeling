@@ -455,4 +455,3 @@ bool AeroWindow::assignRunwayForFlight(Flight &f)
 
     return false;
 }
-

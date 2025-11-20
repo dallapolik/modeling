@@ -68,7 +68,15 @@ void AeroWindow::loadFlights(const QString &filename) {
 
         if (landing)
             city = "Янташубе";
-
+        if (landing) {
+        random_device rd;   // non-deterministic generator
+    mt19937 gen(rd());  // to seed mersenne twister.
+   if (uniform_int_distribution<> dist(0,1)) {
+       dispersion = -dispersion;
+   }
+        }
+        start += dispersion;
+        start = max(start, 0);
         flights_.append({ start, duration, landing, name, city, -1 });
     }
 

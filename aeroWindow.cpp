@@ -51,9 +51,11 @@ void AeroWindow::loadFlights(const QString &filename) {
 
         in >> start >> duration >> type >> name >> city;
 
-        /*
-        Соня, просто здесь вставь че там надо было, отклонение какое-то, я не помню, и мне впадлу
-        */
+    
+        std::default_random_engine generator;  
+    std::normal_distribution<double> distribution(15.0, 5.0); // mean = 15.0, stddev = 5.0
+        double dispersion = distribution(generator);
+        
 
 
         if (in.status() != QTextStream::Ok)
@@ -85,7 +87,7 @@ void AeroWindow::loadFlights(const QString &filename) {
     for (auto &f : flights_) sorted.append(&f);
 
     std::sort(sorted.begin(), sorted.end(),
-              [](Flight *a, Flight *b) { return a->start < b->start; });
+              [](Flight *a, Flight *b) { return a->start < b->star;t; });
 
     std::priority_queue<Node> pq;
     int nextRunway = 0;
